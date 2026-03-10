@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 310px;
+    background: #0d1117;
+    color: #cdd9e5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+  }
+
+  .header {
+    padding: 14px 16px;
+    border-bottom: 1px solid #21262d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #161b22;
+  }
+
+  .logo-box {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #1f6feb, #8957e5);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+
+  .logo-text { font-size: 14px; font-weight: 700; color: #f0f6fc; }
+  .logo-sub  { font-size: 11px; color: #6e7681; margin-top: 1px; }
+
+  .status {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600; color: #3fb950;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #3fb950;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; }
+    50%      { opacity: 0.35; }
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .stat {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .stat-n    { font-size: 24px; font-weight: 800; line-height: 1; }
+  .stat-l    { font-size: 10px; color: #6e7681; margin-top: 4px; letter-spacing: 0.03em; }
+  .red   .stat-n { color: #f85149; }
+  .orange.stat-n { color: #f0883e; }
+  .green .stat-n { color: #3fb950; }
+
+  .section-label {
+    padding: 0 12px 6px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #484f58;
+  }
+
+  .events {
+    padding: 0 12px 12px;
+    display: flex; flex-direction: column; gap: 5px;
+    max-height: 200px; overflow-y: auto;
+  }
+
+  .ev {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-left: 3px solid #30363d;
+    border-radius: 6px;
+    padding: 7px 10px;
+  }
+  .ev.critical { border-left-color: #f85149; }
+  .ev.high     { border-left-color: #f0883e; }
+  .ev.medium   { border-left-color: #f0c040; }
+  .ev.override { border-left-color: #8957e5; }
+
+  .ev-host { font-size: 11px; font-weight: 600; color: #8b949e; }
+  .ev-key  { font-size: 12px; color: #cdd9e5; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ev-time { font-size: 10px; color: #484f58; margin-top: 2px; }
+
+  .empty { padding: 20px; text-align: center; color: #484f58; font-size: 12px; }
+
+  .footer {
+    padding: 10px 12px;
+    border-top: 1px solid #21262d;
+    display: flex; gap: 7px;
+  }
+
+  .btn {
+    flex: 1; padding: 7px;
+    border-radius: 6px;
+    font-size: 12px; font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.8; }
+  .btn-primary   { background: #1f6feb; color: #fff; }
+  .btn-secondary { background: #161b22; color: #6e7681; border: 1px solid #30363d; }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-box">🛡️</div>
+  <div>
+    <div class="logo-text">LLM Guard</div>
+    <div class="logo-sub">API Key Protection</div>
+  </div>
+  <div class="status"><div class="dot"></div> Active</div>
+</div>
+
+<div class="stats">
+  <div class="stat red">
+    <div class="stat-n" id="n-blocked">—</div>
+    <div class="stat-l">Blocked</div>
+  </div>
+  <div class="stat orange">
+    <div class="stat-n" id="n-overrides">—</div>
+    <div class="stat-l">Overrides</div>
+  </div>
+  <div class="stat green">
+    <div class="stat-n" id="n-platforms">—</div>
+    <div class="stat-l">Platforms</div>
+  </div>
+</div>
+
+<div class="section-label">Recent Blocks</div>
+<div class="events" id="event-list">
+  <div class="empty">Loading…</div>
+</div>
+
+<div class="footer">
+  <button class="btn btn-primary"   id="btn-dash">Full Dashboard →</button>
+  <button class="btn btn-secondary" id="btn-clear">Clear</button>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
