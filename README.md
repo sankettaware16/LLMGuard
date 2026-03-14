@@ -60,7 +60,17 @@ Under the hood: Vanilla JS, Manifest v3, chrome.storage.local. No deps, <50KB.
 - **Platforms**: Risk ranking with icons.
 - **Key Types**: Frequency analysis.
 
-Export to CSV for reports.
+## 📸 Screenshots
+
+### 🛡️ Paste Blocked — Credential Detected
+![LLM Guard blocking a paste with JWT and API key detected](assets/screenshots/block-modal.png)
+
+### 📋 Event Log — Full Audit Trail
+![LLM Guard dashboard showing 20 blocked events across ChatGPT](assets/screenshots/event-log.png)
+
+### 🔑 Key Type Analysis — What's Being Caught
+![LLM Guard key type breakdown showing 20 distinct secret types](assets/screenshots/key-types.png)
+```
 
 ## 🤝 Contributing
 - Add regex patterns? Edit `API_KEY_PATTERNS` in content.js.
