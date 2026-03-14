@@ -12,13 +12,16 @@ In the rush of AI brainstorming, it's easy to accidentally paste an API key or s
 - **Open Source**: Audit the code; contribute patterns!
 
 ## ✨ Features
-- **Real-Time Scanning**: Detects 30+ secret types (API keys, tokens, DB strings) via regex.
-- **Smart Blocking**: Shadow DOM modal with severity badges—dismiss to block, override if safe.
+- **Real-Time Scanning**: Detects **85+ secret types** (API keys, tokens, DB strings, private keys) via regex — up from 30 in v2.
+- **Gitleaks-Powered Patterns**: Automatically synced from the battle-tested [gitleaks](https://github.com/gitleaks/gitleaks) open-source ruleset used by security teams worldwide.
+- **Smart Blocking**: Shadow DOM modal with severity badges — dismiss to block, override if safe.
 - **Event Logging**: Tracks blocks/overrides with timestamps, previews.
 - **Browser Badge**: Red count for quick alerts.
 - **Popup Summary**: Instant stats (blocks, platforms) + recent list.
-- **Full Dashboard**: Analytics—hourly charts, severity breakdowns, platform rankings, CSV export.
+- **Full Dashboard**: Analytics — hourly charts, severity breakdowns, platform rankings, CSV export.
 - **Targeted Sites**: ChatGPT, Gemini, Claude, Copilot, Perplexity, Poe, Hugging Face Chat.
+- **Pattern Refresh CLI**: Run `node generate-patterns.js` anytime to pull the latest gitleaks rules — no manual regex work needed.
+---
 
 ## 📋 Supported Secrets
 | Name | Example Pattern | Severity |
@@ -52,6 +55,8 @@ Under the hood: Vanilla JS, Manifest v3, chrome.storage.local. No deps, <50KB.
    Open Brave → `Brave://extensions/`
 3. Enable "Developer mode" → "Load unpacked" → Select the repo folder.
 4. Test: Go to ChatGPT, paste a fake key like `sk-test-abc123`—watch it block!
+
+
 
 
 ## 📊 Dashboard Walkthrough
