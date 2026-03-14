@@ -66,7 +66,7 @@ Under the hood: Vanilla JS, Manifest v3, chrome.storage.local. No deps, <50KB.
 ![LLM Guard blocking a paste with JWT and API key detected](assets/screenshots/block-modal.png)
 
 ### 📋 Event Log — Full Audit Trail
-![LLM Guard dashboard showing 20 blocked events across ChatGPT](assets/screenshots/event-log.png)
+![LLM Guard dashboard showing 20 blocked events across ChatGPT](assets/screenshots/eventlog.png)
 
 ### 🔑 Key Type Analysis — What's Being Caught
 ![LLM Guard key type breakdown showing 20 distinct secret types](assets/screenshots/key-types.png)
