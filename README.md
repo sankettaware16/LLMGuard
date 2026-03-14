@@ -70,7 +70,7 @@ Under the hood: Vanilla JS, Manifest v3, chrome.storage.local. No deps, <50KB.
 
 ### 🔑 Key Type Analysis — What's Being Caught
 ![LLM Guard key type breakdown showing 20 distinct secret types](assets/screenshots/key-types.png)
-```
+
 
 ## 🤝 Contributing
 - Add regex patterns? Edit `API_KEY_PATTERNS` in content.js.
