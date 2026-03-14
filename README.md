@@ -23,19 +23,63 @@ In the rush of AI brainstorming, it's easy to accidentally paste an API key or s
 - **Pattern Refresh CLI**: Run `node generate-patterns.js` anytime to pull the latest gitleaks rules — no manual regex work needed.
 ---
 
-## 📋 Supported Secrets
-| Name | Example Pattern | Severity |
-|------|-----------------|----------|
-| OpenAI API Key | `sk-proj-...` | Critical |
-| AWS Access Key | `AKIA...` | Critical |
-| Google API Key | `AIza...` | Critical |
-| GitHub PAT | `ghp_...` | Critical |
-| Stripe Secret | `sk_live_...` | Critical |
-| Anthropic API Key | `sk-ant-...` | Critical |
-| Razorpay Key | `rzp_live_...` | Critical |
-| JWT Token | `eyJ...` | High |
-| MongoDB URI | `mongodb://user:pass@...` | Critical |
-| RSA Private Key | `-----BEGIN RSA PRIVATE KEY-----` | Critical |
+## 📋 Supported Secrets (85+ patterns)
+ 
+### 🔴 Critical
+
+| Service | Pattern | Example Prefix |
+|---------|---------|----------------|
+| OpenAI API Key | `sk-proj-...` | `sk-proj-` |
+| Anthropic API Key | `sk-ant-api03-...` | `sk-ant-` |
+| Anthropic Admin Key | `sk-ant-admin01-...` | `sk-ant-admin` |
+| AWS Access Key | `AKIA...` / `ASIA...` | `AKIA` |
+| Google / GCP API Key | `AIza...` | `AIza` |
+| GitHub PAT (classic) | `ghp_...` | `ghp_` |
+| GitHub Fine-grained PAT | `github_pat_...` | `github_pat_` |
+| GitHub OAuth / App Token | `gho_` / `ghs_` | `gho_` |
+| GitLab PAT | `glpat-...` | `glpat-` |
+| GitLab Pipeline Token | `glptt-...` | `glptt-` |
+| Stripe Secret (live/test) | `sk_live_...` / `sk_test_...` | `sk_live_` |
+| Shopify Tokens (4 types) | `shpat_` / `shpca_` / `shppa_` / `shpss_` | `shpat_` |
+| Slack Bot / App / User Token | `xoxb-` / `xapp-` / `xoxp-` | `xoxb-` |
+| Razorpay Key | `rzp_live_...` | `rzp_live_` |
+| MongoDB Connection String | `mongodb://user:pass@...` | `mongodb://` |
+| PostgreSQL / MySQL URI | `postgresql://` / `mysql://` | `postgresql://` |
+| RSA / EC / SSH Private Key | `-----BEGIN ... PRIVATE KEY-----` | `-----BEGIN` |
+| Azure AD Client Secret | `...Q~...` pattern | — |
+| DigitalOcean PAT / Token | `dop_v1_...` / `doo_v1_...` | `dop_v1_` |
+| HashiCorp Vault Token | `hvs....` / `b.AAAAAQ...` | `hvs.` |
+| PlanetScale Token | `pscale_tkn_...` | `pscale_` |
+| Databricks Token | `dapi...` | `dapi` |
+| Telegram Bot Token | `123456789:ABC...` | digit + `:` |
+| Twilio API Key | `SK` + 32 hex chars | `SK` |
+| Square Token | `sq0atp-...` | `sq0atp-` |
+| Shippo Token | `shippo_live_...` | `shippo_` |
+| Doppler Token | `dp.pt....` | `dp.pt.` |
+| Dynatrace Token | `dt0c01....` | `dt0c01.` |
+| Yandex API Key | `AQVN...` | `AQVN` |
+| 1Password Secret Key | `A3-XXXXXX-...` | `A3-` |
+ 
+### 🟠 High
+ 
+| Service | Pattern |
+|---------|---------|
+| JWT Token | `eyJ...` |
+| Grafana Tokens (3 types) | `glsa_` / `glc_` / `eyJr...` |
+| Hugging Face Token | `hf_...` |
+| npm Access Token | `npm_...` |
+| Linear API Key | `lin_api_...` |
+| Mailchimp API Key | `....-us12` |
+| Postman API Token | `PMAK-...` |
+| Sendinblue Token | `xkeysib-...` |
+| PyPI Upload Token | `pypi-AgEI...` |
+| Pulumi Token | `pul-...` |
+| RubyGems Token | `rubygems_...` |
+| Fly.io Token | `fo1_...` |
+| Google OAuth Token | `ya29....` |
+| Slack Webhook URL | `hooks.slack.com/services/...` |
+| `.env` file content | `OPENAI_API_KEY=...` pattern |
+| Generic secret in code | `api_key = "..."` pattern |
 | ... (27 more) | See [patterns in code](https://github.com/sankettaware16/LLMGuard/blob/main/content.js) | Varies |
 
 *Custom patterns? PRs welcome!*
