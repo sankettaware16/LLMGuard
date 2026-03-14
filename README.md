@@ -5,7 +5,7 @@
 
 
 ## 🚀 Why LLMGuard?
-In the rush of AI brainstorming, it's easy to accidentally paste an API key or secret into ChatGPT or Gemini—**boom, your creds are in a prompt, potentially logged forever**. LLMGuard scans your input *as you type/paste* on popular LLM sites, blocks risky content with a non-intrusive overlay, and logs everything for review. Built for devs, by a dev (in Mumbai ☕).
+In the rush of AI brainstorming, it's easy to accidentally paste an API key or secret into ChatGPT or Gemini—**boom, your creds are in a prompt, potentially logged forever**. LLMGuard scans your input *as you type/paste* on popular LLM sites, blocks risky content with a non-intrusive overlay, and logs everything for review. Built for devs, by a dev .
 
 - **Zero Setup**: Install and forget—works out-of-the-box.
 - **Privacy-First**: All data local (no cloud sync).
