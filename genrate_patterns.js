@@ -167,16 +167,16 @@ function fetchURL(url) {
 // Main
 // -------------------------------------------------------
 async function main() {
-  console.log("⬇️  Fetching gitleaks.toml ...");
+  console.log("  Fetching gitleaks.toml ...");
   let toml;
   try {
     toml = await fetchURL(GITLEAKS_URL);
   } catch (e) {
-    console.error("❌ Failed to fetch:", e.message);
+    console.error(" Failed to fetch:", e.message);
     process.exit(1);
   }
 
-  console.log("🔍 Parsing rules ...");
+  console.log(" Parsing rules ...");
   const rawRules = parseGitleaksToml(toml);
   console.log(`   Found ${rawRules.length} raw rules`);
 
@@ -198,7 +198,7 @@ async function main() {
     });
   }
 
-  console.log(`   ✅ Converted: ${patterns.length}  ⏭  Skipped (invalid regex): ${skipped}`);
+  console.log(`    Converted: ${patterns.length}  ⏭  Skipped (invalid regex): ${skipped}`);
 
   // -------------------------------------------------------
   // Write output file
@@ -225,7 +225,7 @@ async function main() {
   lines.push("];", "");
 
   fs.writeFileSync(OUTPUT_FILE, lines.join("\n"), "utf8");
-  console.log(`\n✅ Written → ${OUTPUT_FILE}`);
+  console.log(`\n Written → ${OUTPUT_FILE}`);
   console.log(`   ${patterns.length} patterns ready for LLM Guard\n`);
 }
 
