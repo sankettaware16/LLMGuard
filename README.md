@@ -80,7 +80,7 @@ In the rush of AI brainstorming, it's easy to accidentally paste an API key or s
 | Slack Webhook URL | `hooks.slack.com/services/...` |
 | `.env` file content | `OPENAI_API_KEY=...` pattern |
 | Generic secret in code | `api_key = "..."` pattern |
-| ... (27 more) | See [patterns in code](https://github.com/sankettaware16/LLMGuard/blob/main/content.js) | Varies |
+| ... (a lot more) | See [patterns in code](https://github.com/sankettaware16/LLMGuard/blob/main/content.js) | Varies |
 
 *Custom patterns? PRs welcome!*
 
